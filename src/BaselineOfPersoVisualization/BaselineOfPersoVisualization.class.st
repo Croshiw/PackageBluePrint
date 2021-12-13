@@ -9,12 +9,14 @@ BaselineOfPersoVisualization >> baseline: spec [
 
 	<baseline>
 	spec for: #common do: [ 
+		 spec package: 'Perso-Visualization'].
+	spec for: #NeedsMooseIDE do: [ 
 		spec
 			package: 'Perso-Visualization'
 			with: [ spec requires: #( 'MooseIDE' ) ].
-		spec for: #NeedsMooseIDE do: [ spec baseline: 'MooseIDE' with: [ 
+		spec baseline: 'MooseIDE' with: [ 
 			spec repository:
-				'github://moosetechnology/MooseIDE:development/src' ] ] ]
+				'github://moosetechnology/MooseIDE:development/src' ] ]
 ]
 
 { #category : #baselines }
