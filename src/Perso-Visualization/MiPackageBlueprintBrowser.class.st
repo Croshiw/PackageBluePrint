@@ -30,7 +30,7 @@ MiPackageBlueprintBrowser class >> title [
 ]
 
 { #category : #testing }
-MiPackageBlueprintBrowser >> canReceiveEntity: anObject [
+MiPackageBlueprintBrowser >> canFollowEntity: anObject [
 
 	"The entity should be a package that is not stub so we can access its source code"
 

@@ -57,7 +57,7 @@ MiSystemComplexityHBrowser class >> title [
 ]
 
 { #category : #testing }
-MiSystemComplexityHBrowser >> canReceiveEntity: anObject [
+MiSystemComplexityHBrowser >> canFollowEntity: anObject [
 
 	"The entity should be a package that is not stub so we can access its source code"
 
