@@ -2,35 +2,29 @@ Class {
 	#name : #PackageBlueprintClassHolder,
 	#superclass : #Object,
 	#instVars : [
-		'famix_class',
+		'famixClass',
 		'references',
-		'nb_ref'
+		'nbRef'
 	],
 	#category : #'Perso-Visualization-Holder'
 }
 
 { #category : #accessing }
-PackageBlueprintClassHolder >> famix_class [
+PackageBlueprintClassHolder >> famixClass: anObject [
 
-	^ famix_class
+	famixClass := anObject
 ]
 
 { #category : #accessing }
-PackageBlueprintClassHolder >> famix_class: anObject [
+PackageBlueprintClassHolder >> nbRef [
 
-	famix_class := anObject
+	^ nbRef
 ]
 
 { #category : #accessing }
-PackageBlueprintClassHolder >> nb_ref [
+PackageBlueprintClassHolder >> nbRef: anObject [
 
-	^ nb_ref
-]
-
-{ #category : #accessing }
-PackageBlueprintClassHolder >> nb_ref: anObject [
-
-	nb_ref := anObject
+	nbRef := anObject
 ]
 
 { #category : #accessing }

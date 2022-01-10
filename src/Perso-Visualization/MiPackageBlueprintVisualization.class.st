@@ -63,11 +63,10 @@ MiPackageBlueprintVisualization >> holders: anObject [
 { #category : #running }
 MiPackageBlueprintVisualization >> run [
 
-	"TODO: For each class in classes, create a new Object that contains the class, a Collection of its outgoing  references and the number of outgoing references(nb_ref >= references size).
+	"TODO: For each class in classes, create a new Holder that contains the famixclass, a Collection of its outgoing  references and the number of outgoing references(nb_ref >= references size).
 Then we should sort the objects by nb_ref descending.
 Then we can start building our visualization
 "
 
 	self createClassHolders.
-	self buildClassReferences
 ]

@@ -10,25 +10,25 @@ Class {
 }
 
 { #category : #accessing }
+PackageBlueprintBuilder >> famixClass: anObject [
+
+	famix_class := anObject
+]
+
+{ #category : #accessing }
 PackageBlueprintBuilder >> famix_class [
 
 	^ famix_class
 ]
 
 { #category : #accessing }
-PackageBlueprintBuilder >> famix_class: anObject [
-
-	famix_class := anObject
-]
-
-{ #category : #accessing }
-PackageBlueprintBuilder >> nb_ref [
+PackageBlueprintBuilder >> nbRef [
 
 	^ nb_ref
 ]
 
 { #category : #accessing }
-PackageBlueprintBuilder >> nb_ref: anObject [
+PackageBlueprintBuilder >> nbRef: anObject [
 
 	nb_ref := anObject
 ]
