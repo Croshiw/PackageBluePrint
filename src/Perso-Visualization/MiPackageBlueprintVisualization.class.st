@@ -22,14 +22,16 @@ MiPackageBlueprintVisualization >> classes: anObject [
 
 { #category : #running }
 MiPackageBlueprintVisualization >> createClassHolders [
-"TODO: remove _ from prop"
+
+	self holders: Set new.
 	self classes do: [ :cls | 
-		| holder refs|
-		refs :=  (self getReferences: cls).
+		| holder refs |
+		refs := self getReferences: cls.
 		holder := PackageBlueprintClassHolder new
-			          famix_class: cls;
+			          famixClass: cls;
 			          references: refs asSet;
-			          nb_ref: refs size ]
+			          nbRef: refs size.
+		self holders add: holder ]
 ]
 
 { #category : #accessing }
