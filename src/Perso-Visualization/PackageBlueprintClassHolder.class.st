@@ -1,3 +1,8 @@
+"
+I represent the holder of a Famix Class.
+I hold the Class, its outgoing references and the number of outgoing references
+(nbRef >= references because it could refere to the same class twice)
+"
 Class {
 	#name : #PackageBlueprintClassHolder,
 	#superclass : #Object,

@@ -71,4 +71,10 @@ Then we can start building our visualization
 "
 
 	self createClassHolders.
+	self sortHolders.
+]
+
+{ #category : #accessing }
+MiPackageBlueprintVisualization >> sortHolders [
+	self holders sorted: [ :h1 :h2 | h1 nbRef > h2 nbRef ]
 ]
