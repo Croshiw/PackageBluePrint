@@ -15,6 +15,11 @@ Class {
 }
 
 { #category : #accessing }
+PackageBlueprintClassHolder >> famixClass [
+	^famixClass
+]
+
+{ #category : #accessing }
 PackageBlueprintClassHolder >> famixClass: anObject [
 
 	famixClass := anObject
