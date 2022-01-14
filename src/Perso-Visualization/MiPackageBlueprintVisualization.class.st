@@ -29,6 +29,26 @@ MiPackageBlueprintVisualization >> boxCompositeFor: cls [
 ]
 
 { #category : #accessing }
+MiPackageBlueprintVisualization >> boxCompositeFor: cls withColor: col [
+
+	| label box |
+	box := self newBox: col.
+	label := self newLabel: cls name.
+	RSLocation new
+		above;
+		move: box on: label.
+	^ RSComposite new
+		  shapes: { 
+				  label.
+				  box };
+		  model: cls;
+		  @ RSDraggable;
+		  addInteraction:
+			  (MiSelection on: [ :entity | self owner model selected: entity ]);
+		  yourself
+]
+
+{ #category : #accessing }
 MiPackageBlueprintVisualization >> classes [
 
 	^ classes
@@ -91,6 +111,15 @@ MiPackageBlueprintVisualization >> newBox [
 		  yourself
 ]
 
+{ #category : #running }
+MiPackageBlueprintVisualization >> newBox: col [
+
+	^ RSBox new
+		  size: 100;
+		  color: col;
+		  yourself
+]
+
 { #category : #accessing }
 MiPackageBlueprintVisualization >> newLabel: name [
 
@@ -108,19 +137,41 @@ Then we should sort the objects by nb_ref descending.
 Then we can start building our visualization
 "
 
+	| boxes1 boxes2 |
 	super run.
 	self createClassHolders.
 	self sortHolders.
-	self
-		showInternalClasses:
-		(self holders collect: [ :h | self boxCompositeFor: h famixClass ])
-		inCanvas: self canvas.
+	boxes1 := RSGroup new.
+	boxes1 addAll: (holders collect: [ :h | 
+			 self boxCompositeFor: h famixClass withColor: Color lightGreen ]).
+	boxes2 := RSGroup new.
+	boxes2 addAll: (self holders collect: [ :h | 
+			           self
+				           boxCompositeFor: h famixClass
+				           withColor: Color lightRed ]).
+	self showVerticalClasses: boxes1 inCanvas: self canvas.
+	self showHorizontalClasses: boxes2 inCanvas: self canvas.
+	RSLocation new
+		above;
+		right;
+		move: boxes2 on: boxes1
+
 	"Ici 2 idées : colonne par colonne ou ligne par ligne
 	reste à savoir comment les positionner sur le canvas"
 ]
 
 { #category : #accessing }
-MiPackageBlueprintVisualization >> showInternalClasses: boxes inCanvas: canvas [
+MiPackageBlueprintVisualization >> showHorizontalClasses: boxes inCanvas: canvas [
+
+	self canvas addAll: boxes.
+	RSEdgeBuilder line
+		canvas: canvas;
+		withVerticalAttachPoint.
+	RSHorizontalLineLayout on: boxes.
+]
+
+{ #category : #accessing }
+MiPackageBlueprintVisualization >> showVerticalClasses: boxes inCanvas: canvas [
 
 	self canvas addAll: boxes.
 	RSEdgeBuilder line
